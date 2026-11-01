@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ml_sha_sha.trad" format="2">
+  <advance width="1105"/>
+  <outline>
+    <contour>
+      <point x="50" y="0" type="line"/>
+      <point x="1055" y="0" type="line"/>
+      <point x="1055" y="700" type="line"/>
+      <point x="50" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="80" y="30" type="line"/>
+      <point x="80" y="670" type="line"/>
+      <point x="1025" y="670" type="line"/>
+      <point x="1025" y="30" type="line"/>
+    </contour>
+  </outline>
+</glyph>

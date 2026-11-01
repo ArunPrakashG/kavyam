@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ml_na_ta" format="2">
+  <advance width="1105"/>
+  <outline>
+    <contour>
+      <point x="50" y="0" type="line"/>
+      <point x="1055" y="0" type="line"/>
+      <point x="1055" y="700" type="line"/>
+      <point x="50" y="700" type="line"/>
+    </contour>
+    <contour>
+      <point x="170" y="120" type="line"/>
+      <point x="170" y="580" type="line"/>
+      <point x="935" y="580" type="line"/>
+      <point x="935" y="120" type="line"/>
+    </contour>
+  </outline>
+</glyph>

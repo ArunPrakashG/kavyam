@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="ml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kavyam Preview</title>
+<style>
+  @font-face {
+    font-family: "Kavyam";
+    src: url("../build/variable/Kavyam%5Bwght%5D.woff2") format("woff2");
+    font-weight: 300 900;
+  }
+  :root {
+    --bg: #faf5ea; --fg: #3b2414; --muted: #8a7358; --card: #fffdf7; --line: #e4d8bf; --accent: #8c4b1f;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #1d150e; --fg: #f1e4cc; --muted: #a8926f; --card: #271c13; --line: #43321f; --accent: #e0a05e; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 15px/1.5 system-ui, sans-serif; }
+  main { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+  h1 { font-size: 22px; margin: 0 0 4px; }
+  p.note { color: var(--muted); margin: 0 0 20px; max-width: 70ch; }
+  .controls { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; padding: 14px 16px;
+              background: var(--card); border: 1px solid var(--line); border-radius: 10px; margin-bottom: 16px; }
+  .controls label { display: flex; align-items: center; gap: 8px; color: var(--muted); }
+  .controls input[type=range] { width: 140px; accent-color: var(--accent); }
+  .controls output { color: var(--fg); min-width: 3ch; font-variant-numeric: tabular-nums; }
+  textarea, .sample { font-family: "Kavyam", sans-serif; font-weight: var(--wght, 400); font-size: var(--size, 48px);
+                      line-height: 1.5; font-feature-settings: var(--feat, normal); }
+  textarea { width: 100%; min-height: 140px; padding: 14px 16px; color: var(--fg); background: var(--card);
+             border: 1px solid var(--line); border-radius: 10px; resize: vertical; }
+  h2 { font-size: 15px; margin: 28px 0 8px; color: var(--muted); font-weight: 600; letter-spacing: .02em; }
+  table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--line);
+          border-radius: 10px; overflow: hidden; }
+  th, td { padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--line); vertical-align: middle; }
+  th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  tr:last-child td { border-bottom: 0; }
+  td .g { font-family: "Kavyam", sans-serif; font-size: 40px; line-height: 1.3; font-weight: var(--wght, 400); }
+  td.what { color: var(--muted); font-size: 13px; }
+  .off { font-feature-settings: "akhn" 0, "cjct" 0, "pref" 0, "pstf" 0; }
+  .trad { font-feature-settings: "ss01" 1; }
+  @media (max-width: 600px) { td .g { font-size: 30px; } .controls input[type=range] { width: 100px; } }
+</style>
+</head>
+<body>
+<main>
+  <h1>Kavyam: preview</h1>
+  <p class="note">Placeholder outlines: every glyph is a hollow box. Look at <em>how many boxes</em> a cluster becomes
+    (one wide box means a ligature formed), where signs sit, and how the stroke thickens with weight.</p>
+
+  <div class="controls">
+    <label>Weight <input id="w" type="range" min="300" max="900" step="10" value="400"><output id="wo">400</output></label>
+    <label>Size <input id="s" type="range" min="20" max="120" value="48"><output id="so">48</output></label>
+    <label><input id="trad" type="checkbox"> Traditional lipi (ss01)</label>
+    <label><input id="lig" type="checkbox" checked> Shaping features on</label>
+  </div>
+
+  <textarea id="t" spellcheck="false">കണ്ടു അമ്മ പക്ഷി മഞ്ഞ് ചിന്ത
+ക്രമം ചക്രം ക്യാമറ സ്വർണം
+കൊച്ചി കോഴി കൌമാരം ഇന്റർനെറ്റ്
+ക്തം ന്മ ല്പ ണ്മ ശ്ച</textarea>
+
+  <h2>CLUSTER CHECK (shaping off → on → traditional)</h2>
+  <table>
+    <thead><tr><th>Text</th><th>Off (raw)</th><th>On</th><th>ss01</th><th>Expected</th></tr></thead>
+    <tbody id="rows"></tbody>
+  </table>
+</main>
+
+<script>
+  const ROWS = [
+    ["ക്ക", "1 wide box (ligature)"], ["ങ്ക", "1 wide box"], ["ന്റ", "1 wide box"],
+    ["ക്ഷ", "1 wide box (akhand)"], ["ക്ല", "3 boxes: no ligature, visible chandrakkala"],
+    ["ക്ര", "ra sign LEFT of consonant"], ["ക്യ", "ya sign RIGHT"], ["ക്വ", "va sign RIGHT"],
+    ["കെ", "e sign LEFT"], ["കൊ", "e sign LEFT + aa sign RIGHT"], ["കോ", "ee sign LEFT + aa sign RIGHT"],
+    ["ക്ത", "plain: 3 boxes; ss01: 1 wide box (traditional-only)"], ["ന്‍", "legacy chillu: 1 box"],
+  ];
+  const $ = id => document.getElementById(id);
+  const tbody = $("rows");
+  for (const [txt, what] of ROWS) {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `<td><span class="g">${txt}</span></td>
+      <td><span class="g off">${txt}</span></td>
+      <td><span class="g">${txt}</span></td>
+      <td><span class="g trad">${txt}</span></td>
+      <td class="what">${what}</td>`;
+    tbody.appendChild(tr);
+  }
+  function apply() {
+    const root = document.documentElement.style;
+    root.setProperty("--wght", $("w").value);
+    root.setProperty("--size", $("s").value + "px");
+    $("wo").textContent = $("w").value; $("so").textContent = $("s").value;
+    const feats = [];
+    if (!$("lig").checked) feats.push('"akhn" 0', '"cjct" 0', '"pref" 0', '"pstf" 0');
+    if ($("trad").checked) feats.push('"ss01" 1');
+    root.setProperty("--feat", feats.length ? feats.join(", ") : "normal");
+  }
+  ["w", "s", "trad", "lig"].forEach(id => $(id).addEventListener("input", apply));
+  apply();
+</script>
+</body>
+</html>

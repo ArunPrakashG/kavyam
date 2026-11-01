@@ -1,0 +1,10 @@
+# Kavyam OpenType features. Included by every UFO via features.fea.
+
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+languagesystem mlm2 dflt;   # current Malayalam script tag
+languagesystem mlym dflt;   # legacy tag, for older shapers
+
+include(indic_basic.fea);
+include(modern_ligatures.fea);   # generated
+include(traditional.fea);        # generated (ss01)

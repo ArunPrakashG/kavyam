@@ -1,0 +1,24 @@
+# Hand-written Malayalam shaping features (script-wide, orthography-neutral).
+
+# Legacy chillu spelling: consonant + virama + ZWJ  ->  atomic chillu (U+0D7A..7F)
+feature akhn {
+    lookup chillu_legacy {
+        sub ml_nna ml_sign_virama zwj by ml_chillu_nn;
+        sub ml_na  ml_sign_virama zwj by ml_chillu_n;
+        sub ml_ra  ml_sign_virama zwj by ml_chillu_rr;
+        sub ml_la  ml_sign_virama zwj by ml_chillu_l;
+        sub ml_lla ml_sign_virama zwj by ml_chillu_ll;
+        sub ml_ka  ml_sign_virama zwj by ml_chillu_k;
+    } chillu_legacy;
+} akhn;
+
+# Ra sign (consonant + virama + RA): drawn to the LEFT of the consonant.
+feature pref {
+    sub ml_sign_virama ml_ra by ml_ra_sign;
+} pref;
+
+# Ya / va signs (consonant + virama + YA/VA): post-base forms.
+feature pstf {
+    sub ml_sign_virama ml_ya by ml_ya_sign;
+    sub ml_sign_virama ml_va by ml_va_sign;
+} pstf;

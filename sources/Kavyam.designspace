@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<designspace format="5.0">
+  <axes>
+    <axis tag="wght" name="weight" minimum="300" maximum="900" default="300"/>
+  </axes>
+  <sources>
+    <source filename="Kavyam-Light.ufo" familyname="Kavyam" stylename="Light">
+      <location>
+        <dimension name="weight" xvalue="300"/>
+      </location>
+    </source>
+    <source filename="Kavyam-Black.ufo" familyname="Kavyam" stylename="Black">
+      <location>
+        <dimension name="weight" xvalue="900"/>
+      </location>
+    </source>
+  </sources>
+  <instances>
+    <instance familyname="Kavyam" stylename="Light" filename="instances/Kavyam-Light.ufo" stylemapfamilyname="Kavyam Light" stylemapstylename="regular">
+      <location>
+        <dimension name="weight" xvalue="300"/>
+      </location>
+    </instance>
+    <instance familyname="Kavyam" stylename="Regular" filename="instances/Kavyam-Regular.ufo" stylemapfamilyname="Kavyam" stylemapstylename="regular">
+      <location>
+        <dimension name="weight" xvalue="400"/>
+      </location>
+    </instance>
+    <instance familyname="Kavyam" stylename="Medium" filename="instances/Kavyam-Medium.ufo" stylemapfamilyname="Kavyam Medium" stylemapstylename="regular">
+      <location>
+        <dimension name="weight" xvalue="500"/>
+      </location>
+    </instance>
+    <instance familyname="Kavyam" stylename="Bold" filename="instances/Kavyam-Bold.ufo" stylemapfamilyname="Kavyam" stylemapstylename="bold">
+      <location>
+        <dimension name="weight" xvalue="700"/>
+      </location>
+    </instance>
+    <instance familyname="Kavyam" stylename="Black" filename="instances/Kavyam-Black.ufo" stylemapfamilyname="Kavyam Black" stylemapstylename="regular">
+      <location>
+        <dimension name="weight" xvalue="900"/>
+      </location>
+    </instance>
+  </instances>
+</designspace>

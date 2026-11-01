@@ -1,0 +1,54 @@
+# Modern (reformed) lipi conjunct ligatures: one cluster per line.
+# Each is consonant + chandrakkala (virama) + consonant. Anything NOT listed
+# renders with a visible chandrakkala, which is correct for modern lipi.
+#
+# STATUS: first-pass list for pipeline testing. Needs review by a Malayalam
+# typographer before release.
+#
+# Deliberately excluded: clusters ending in യ വ ര, because ya/va/ra signs are
+# produced by pstf/pref and would pre-empt a ligature.
+
+# geminates
+ക്ക
+ഗ്ഗ
+ച്ച
+ജ്ജ
+ഞ്ഞ
+ട്ട
+ഡ്ഡ
+ണ്ണ
+ത്ത
+ദ്ദ
+പ്പ
+ബ്ബ
+മ്മ
+ല്ല
+ള്ള
+ശ്ശ
+ഷ്ഷ
+സ്സ
+റ്റ
+ന്ന
+
+# nasal clusters
+ങ്ക
+ങ്ങ
+ഞ്ച
+ഞ്ജ
+ണ്ട
+ണ്ഠ
+ണ്ഡ
+ന്ത
+ന്ഥ
+ന്ദ
+ന്ധ
+ന്റ
+മ്പ
+
+# other
+ത്ഥ
+ദ്ധ
+
+# akhand (always ligated)
+ക്ഷ
+ജ്ഞ

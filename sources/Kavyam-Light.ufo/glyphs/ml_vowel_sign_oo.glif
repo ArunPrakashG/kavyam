@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<glyph name="ml_vowel_sign_oo" format="2">
+  <advance width="400"/>
+  <unicode hex="0D4B"/>
+  <outline>
+    <contour>
+      <point x="60" y="380" type="line"/>
+      <point x="340" y="380" type="line"/>
+      <point x="340" y="680" type="line"/>
+      <point x="60" y="680" type="line"/>
+    </contour>
+    <contour>
+      <point x="90" y="410" type="line"/>
+      <point x="90" y="650" type="line"/>
+      <point x="310" y="650" type="line"/>
+      <point x="310" y="410" type="line"/>
+    </contour>
+  </outline>
+</glyph>

@@ -1,0 +1,27 @@
+# Traditional (old lipi) conjunct ligatures, exposed through the ss01 feature.
+#
+# Entries that also appear in ligatures_modern.txt become ALTERNATE glyphs
+# (<name>.trad). Entries that do not appear there become NEW ligatures.
+#
+# STATUS: PLACEHOLDER. The extra lines below only prove the mechanism. The real
+# list (several hundred clusters) must be compiled with a Malayalam typographer,
+# using Rachana and Karthika as references.
+
+# new traditional-only ligatures
+ക്ത
+ന്മ
+ത്മ
+ല്പ
+ല്ക
+ണ്മ
+ശ്ച
+
+# modern ligatures that get a traditional alternate
+ക്ക
+ങ്ക
+ണ്ട
+ന്ത
+ന്റ
+പ്പ
+ശ്ശ
+ക്ഷ
