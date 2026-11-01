@@ -5,11 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kavyam Preview</title>
 <style>
-  @font-face {
-    font-family: "Kavyam";
-    src: url("../build/variable/Kavyam%5Bwght%5D.woff2") format("woff2");
-    font-weight: 300 900;
-  }
   :root {
     --bg: #faf5ea; --fg: #3b2414; --muted: #8a7358; --card: #fffdf7; --line: #e4d8bf; --accent: #8c4b1f;
   }
@@ -61,6 +56,10 @@
 കൊച്ചി കോഴി കൌമാരം ഇന്റർനെറ്റ്
 ക്തം ന്മ ല്പ ണ്മ ശ്ച</textarea>
 
+  <h2>DRAFT GLYPHS vs REFERENCE (കാവ്യം and അ are drawn; everything else is still boxes)</h2>
+  <div class="sample" style="font-size:150px;line-height:1.5;padding:8px 16px;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow-x:auto;white-space:nowrap">കാവ്യം അ</div>
+  <img src="../reference/crop_title.png" alt="" style="width:100%;margin-top:8px;border-radius:10px" onerror="this.remove()">
+
   <h2>CLUSTER CHECK (shaping off → on → traditional)</h2>
   <table>
     <thead><tr><th>Text</th><th>Off (raw)</th><th>On</th><th>ss01</th><th>Expected</th></tr></thead>
@@ -69,6 +68,9 @@
 </main>
 
 <script>
+  // Load with a cache-buster so a rebuild shows up on plain reload.
+  const face = new FontFace("Kavyam", `url(../build/variable/Kavyam%5Bwght%5D.woff2?t=${Date.now()})`, { weight: "300 900" });
+  face.load().then(f => document.fonts.add(f));
   const ROWS = [
     ["ക്ക", "1 wide box (ligature)"], ["ങ്ക", "1 wide box"], ["ന്റ", "1 wide box"],
     ["ക്ഷ", "1 wide box (akhand)"], ["ക്ല", "3 boxes: no ligature, visible chandrakkala"],

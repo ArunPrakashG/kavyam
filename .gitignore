@@ -3,3 +3,5 @@ instance_ufo/
 sources/instances/
 __pycache__/
 .venv/
+reference/
+.claude/
